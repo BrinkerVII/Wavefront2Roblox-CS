@@ -1,0 +1,8 @@
+C:\Users\BrinkerVII\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\bin\Release\Wavefront2Roblox.exe.config
+C:\Users\BrinkerVII\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\bin\Release\Wavefront2Roblox.exe
+C:\Users\BrinkerVII\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\bin\Release\Wavefront2Roblox.pdb
+C:\Users\BrinkerVII\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Release\Wavefront2Roblox.Form1.resources
+C:\Users\BrinkerVII\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Release\Wavefront2Roblox.Properties.Resources.resources
+C:\Users\BrinkerVII\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Release\Wavefront2Roblox.csproj.GenerateResource.Cache
+C:\Users\BrinkerVII\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Release\Wavefront2Roblox.exe
+C:\Users\BrinkerVII\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Release\Wavefront2Roblox.pdb

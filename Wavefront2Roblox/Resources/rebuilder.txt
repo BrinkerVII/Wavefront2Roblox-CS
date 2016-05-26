@@ -1,0 +1,87 @@
+local SCALE = 1
+local BatchSize = 250
+local yOffset = 150
+
+TriaCalc={
+	WIDTH = .2,
+	GetMetrics=(function(n1, n2, n3)
+		local Node1, Node2, Node3;
+		local InterimNode;
+
+		local d1, d2, d3 = (n1.Position - n2.Position).magnitude, (n2.Position - n3.Position).magnitude, (n3.Position - n1.Position).magnitude
+		if d1 > d2 and d1 > d3 then
+			Node1, Node2, Node3 = n2.Position, n3.Position, n1.Position
+		elseif d2 > d3 then
+			Node1, Node2, Node3 = n3.Position, n1.Position, n2.Position
+		else
+			Node1, Node2, Node3 = n1.Position, n2.Position, n3.Position
+		end
+		InterimNode = (Node3 - Node1).unit:Dot(Node2 - Node1) * (Node3 - Node1).unit + Node1
+
+		local Vec3 = (Node3 - Node1).unit
+		local Vec1 = (Vec3:Cross(Node2 - Node1)).unit
+		local Vec2 = Vec3:Cross(Vec1)
+		local Position1 = Node1:Lerp(Node2, .5)
+		local Position2 = Node3:Lerp(Node2, .5)
+
+		return
+			CFrame.new(Position1.x, Position1.y, Position1.z, -Vec1.x, -Vec2.x, Vec3.x, -Vec1.y, -Vec2.y, Vec3.y, -Vec1.z, -Vec2.z, Vec3.z) * CFrame.new(TriaCalc.WIDTH / 2, 0, 0),
+			Vector3.new(TriaCalc.WIDTH, (InterimNode - Node2).magnitude, (InterimNode - Node1).magnitude),
+			CFrame.new(Position2.x, Position2.y, Position2.z, Vec1.x, -Vec2.x, -Vec3.x, Vec1.y, -Vec2.y, -Vec3.y, Vec1.z, -Vec2.z, -Vec3.z) * CFrame.new(-TriaCalc.WIDTH / 2, 0, 0),
+			Vector3.new(TriaCalc.WIDTH, (InterimNode - Node2).magnitude, (InterimNode - Node3).magnitude);
+	end),
+	GenerateTriangle=(function(n1, n2, n3)
+		local c1, s1, c2, s2 = TriaCalc.GetMetrics(n1, n2, n3);
+
+		local Part1 = Instance.new("WedgePart");
+		Part1.FormFactor = Enum.FormFactor.Custom;
+		Part1.Size = s1;
+		Part1.CFrame = c1;
+		Part1.Anchored = true
+
+		local Part2 = Instance.new("WedgePart");
+		Part2.FormFactor = Enum.FormFactor.Custom;
+		Part2.Size = s2;
+		Part2.CFrame = c2;
+		Part2.Anchored = true
+
+		return Part1, Part2;
+	end)
+}
+
+local target = Instance.new("Model", Game.Workspace)
+target.Name = "TriangleTarget"
+
+function BuildTriangle(i)
+	local v1x, v1y, v1z, v1w = faces[i], faces[i+1], faces[i+2], faces[i+3]
+	local v2x, v2y, v2z, v2w = faces[i+4], faces[i+5], faces[i+6], faces[i+7]
+	local v3x, v3y, v3z, v3w = faces[i+8], faces[i+9], faces[i+10], faces[i+11]
+	
+	local pa, pb = TriaCalc.GenerateTriangle(
+		{ Position = Vector3.new(v1x, v1y + yOffset, v1z), },
+		{ Position = Vector3.new(v2x, v2y + yOffset, v2z), },
+		{ Position = Vector3.new(v3x, v3y + yOffset, v3z), }
+	)
+	
+	pa.Parent, pb.Parent = target, target
+end
+
+function scale(n)
+	for i = 1, #faces do
+		if(i % 4 ~= 0)then
+			faces[i] = faces[i] * n
+		end
+	end
+end
+scale(SCALE)
+
+local flen = #faces
+local c = 0
+for i = 1, flen, 12 do
+	BuildTriangle(i)
+	c = c + 1
+	if(c % BatchSize == 0)then
+		wait(.5)
+		print(i / flen * 100, "%")
+	end
+end
