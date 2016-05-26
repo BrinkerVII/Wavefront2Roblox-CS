@@ -1,9 +1,0 @@
-c:\users\brinkervii\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\bin\Debug\Wavefront2Roblox.exe.config
-c:\users\brinkervii\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Debug\Wavefront2Roblox.csprojResolveAssemblyReference.cache
-c:\users\brinkervii\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Debug\Wavefront2Roblox.Form1.resources
-c:\users\brinkervii\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Debug\Wavefront2Roblox.Properties.Resources.resources
-c:\users\brinkervii\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Debug\Wavefront2Roblox.csproj.GenerateResource.Cache
-c:\users\brinkervii\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\bin\Debug\Wavefront2Roblox.exe
-c:\users\brinkervii\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\bin\Debug\Wavefront2Roblox.pdb
-c:\users\brinkervii\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Debug\Wavefront2Roblox.exe
-c:\users\brinkervii\documents\visual studio 2015\Projects\Wavefront2Roblox\Wavefront2Roblox\obj\Debug\Wavefront2Roblox.pdb
